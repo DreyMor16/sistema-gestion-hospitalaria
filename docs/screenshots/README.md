@@ -1,5 +1,6 @@
 # Capturas del proyecto
 
-Guarda en esta carpeta capturas del inicio de sesión y de los paneles de
-administrador, médico, recepcionista y paciente.
+Galería del inicio de sesión y de las funciones principales de administrador,
+recepción, personal médico y paciente. Toda la información visible procede de
+los datos ficticios incluidos en el script de demostración.
 

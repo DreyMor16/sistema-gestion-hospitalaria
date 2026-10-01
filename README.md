@@ -95,5 +95,94 @@ docs/      Material visual del proyecto
 
 ## Capturas
 
-Las capturas de la aplicación se agregarán en `docs/screenshots`.
+Las pantallas utilizan exclusivamente la información ficticia incluida en el
+script de demostración.
+
+### Acceso al sistema
+
+<p align="center">
+  <img src="docs/screenshots/01-login.png" alt="Inicio de sesión del sistema hospitalario" width="900">
+</p>
+
+### Administración
+
+<table>
+  <tr>
+    <td width="50%">
+      <strong>Panel administrativo</strong><br>
+      <img src="docs/screenshots/02-admin-dashboard.png" alt="Panel administrativo" width="100%">
+    </td>
+    <td width="50%">
+      <strong>Gestión de medicamentos</strong><br>
+      <img src="docs/screenshots/03-admin-medicamentos.png" alt="Gestión de medicamentos" width="100%">
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <strong>Catálogo e inventario</strong><br>
+      <img src="docs/screenshots/03b-admin-inventario.png" alt="Catálogo e inventario de medicamentos" width="100%">
+    </td>
+  </tr>
+</table>
+
+### Recepción
+
+<table>
+  <tr>
+    <td width="50%">
+      <strong>Panel de recepción</strong><br>
+      <img src="docs/screenshots/04-recepcion-dashboard.png" alt="Panel de recepción" width="100%">
+    </td>
+    <td width="50%">
+      <strong>Creación de citas</strong><br>
+      <img src="docs/screenshots/05-recepcion-citas.png" alt="Creación de citas médicas" width="100%">
+    </td>
+  </tr>
+</table>
+
+### Portal médico
+
+<table>
+  <tr>
+    <td width="50%">
+      <strong>Jornada clínica</strong><br>
+      <img src="docs/screenshots/06-medico-dashboard.png" alt="Panel del médico" width="100%">
+    </td>
+    <td width="50%">
+      <strong>Historial de citas</strong><br>
+      <img src="docs/screenshots/07-medico-historial.png" alt="Historial de citas del médico" width="100%">
+    </td>
+  </tr>
+  <tr>
+    <td colspan="2">
+      <strong>Pacientes atendidos</strong><br>
+      <img src="docs/screenshots/08-medico-pacientes.png" alt="Pacientes atendidos por el médico" width="100%">
+    </td>
+  </tr>
+</table>
+
+### Portal del paciente
+
+<table>
+  <tr>
+    <td width="50%">
+      <strong>Mi espacio de salud</strong><br>
+      <img src="docs/screenshots/09-paciente-dashboard.png" alt="Panel del paciente" width="100%">
+    </td>
+    <td width="50%">
+      <strong>Agenda de citas</strong><br>
+      <img src="docs/screenshots/10-paciente-citas.png" alt="Agenda de citas del paciente" width="100%">
+    </td>
+  </tr>
+  <tr>
+    <td width="50%">
+      <strong>Expediente personal</strong><br>
+      <img src="docs/screenshots/11-paciente-expediente.png" alt="Expediente del paciente" width="100%">
+    </td>
+    <td width="50%">
+      <strong>Pagos de tratamientos</strong><br>
+      <img src="docs/screenshots/12-paciente-pagos.png" alt="Pagos de tratamientos" width="100%">
+    </td>
+  </tr>
+</table>
 
