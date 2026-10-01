@@ -1,0 +1,404 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Portal.Master.cs" Inherits="UIL.PortalMaster" %>
+
+<!DOCTYPE html>
+<html lang="es">
+<head runat="server">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hospital General</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+    <link href="<%= ResolveUrl("~/Content/Portal.css") %>?v=20260721-2" rel="stylesheet" />
+</head>
+
+<body class="portal-body">
+    <form id="form1" runat="server">
+        <div class="portal-shell">
+
+            <aside class="portal-sidebar">
+                <a class="brand" href="<%= ResolveUrl("~/Login.aspx") %>">
+                    <span class="brand-mark">
+                        <i class="bi bi-heart-pulse-fill"></i>
+                    </span>
+
+                    <span>
+                        <span class="brand-title">Hospital General</span>
+                        <span class="brand-subtitle">
+                            <asp:Literal ID="litSubtitulo" runat="server"></asp:Literal>
+                        </span>
+                    </span>
+                </a>
+
+                <div class="profile-mini">
+                    <span class="profile-avatar">
+                        <%= Server.HtmlEncode(InicialUsuario) %>
+                    </span>
+
+                    <div>
+                        <strong>
+                            <%= Server.HtmlEncode(UsuarioActual.Nombre + " " + UsuarioActual.Apellido) %>
+                        </strong>
+
+                        <small>
+                            @<%= Server.HtmlEncode(UsuarioActual.NombreUsuario) %>
+                        </small>
+                    </div>
+                </div>
+
+                <!-- MENÚ PACIENTE -->
+                <asp:Panel ID="pnlPaciente" runat="server" Visible="false">
+                    <div class="nav-caption">Mi salud</div>
+
+                    <nav class="nav-menu">
+                        <a class="nav-link" href="Paciente.aspx">
+                            <i class="bi bi-grid-1x2"></i><span>Inicio</span>
+                        </a>
+
+                        <a class="nav-link" href="MiInformacion.aspx">
+                            <i class="bi bi-person-circle"></i><span>Mi información</span>
+                        </a>
+
+                        <a class="nav-link" href="PacienteExpediente.aspx">
+                            <i class="bi bi-file-earmark-medical"></i><span>Expediente personal</span>
+                        </a>
+
+                        <a class="nav-link" href="PacienteCitas.aspx">
+                            <i class="bi bi-calendar2-check"></i><span>Mis citas</span>
+                        </a>
+
+                        <a class="nav-link" href="PacientePagos.aspx">
+                            <i class="bi bi-credit-card"></i><span>Pagar tratamientos</span>
+                        </a>
+                    </nav>
+                </asp:Panel>
+
+                <!-- MENÚ MÉDICO -->
+                <asp:Panel ID="pnlMedico" runat="server" Visible="false">
+                    <div class="nav-caption">Atención clínica</div>
+
+                    <nav class="nav-menu">
+                        <a class="nav-link" href="Medico.aspx">
+                            <i class="bi bi-grid-1x2"></i><span>Inicio</span>
+                        </a>
+
+                        <a class="nav-link" href="MedicoPacientes.aspx">
+                            <i class="bi bi-people"></i><span>Ver pacientes</span>
+                        </a>
+
+                        <a class="nav-link" href="MedicoHistorial.aspx">
+                            <i class="bi bi-clock-history"></i><span>Historial de citas</span>
+                        </a>
+
+                        <a class="nav-link" href="MedicoCita.aspx">
+                            <i class="bi bi-clipboard2-plus"></i><span>Cita</span>
+                        </a>
+
+                        <a class="nav-link" href="MiInformacion.aspx">
+                            <i class="bi bi-person-circle"></i><span>Mi información</span>
+                        </a>
+                    </nav>
+                </asp:Panel>
+
+                <!-- MENÚ RECEPCIONISTA -->
+                <asp:Panel ID="pnlRecepcionista" runat="server" Visible="false">
+                    <div class="nav-caption">Atención al paciente</div>
+
+                    <nav class="nav-menu">
+                        <a class="nav-link" href="Recepcionista.aspx">
+                            <i class="bi bi-grid-1x2"></i><span>Inicio</span>
+                        </a>
+
+                        <a class="nav-link" href="RecepcionistaPago.aspx">
+                            <i class="bi bi-credit-card"></i><span>Pagar tratamiento</span>
+                        </a>
+
+                        <a class="nav-link" href="RecepcionistaCitas.aspx">
+                            <i class="bi bi-calendar2-plus"></i><span>Crear citas</span>
+                        </a>
+
+                        <a class="nav-link" href="RecepcionistaPaciente.aspx">
+                            <i class="bi bi-person-plus"></i><span>Nuevo paciente</span>
+                        </a>
+                        <a class="nav-link" href="RecepcionistaControlCitas.aspx">
+                            <i class="bi bi-calendar2-check"></i>
+                            <span>Control de citas</span>
+                        </a>
+                        <a class="nav-link" href="MiInformacion.aspx">
+                            <i class="bi bi-person-circle"></i><span>Mi información</span>
+                        </a>
+                    </nav>
+                </asp:Panel>
+
+                <!-- MENÚ ADMINISTRADOR -->
+                <asp:Panel ID="pnlAdministrador" runat="server" Visible="false">
+                    <div class="nav-caption">Administración</div>
+
+                    <nav class="nav-menu">
+                        <a class="nav-link" href="Administrador.aspx">
+                            <i class="bi bi-grid-1x2"></i><span>Resumen general</span>
+                        </a>
+
+                        <a class="nav-link" href="MantenimientoHospital.aspx">
+                            <i class="bi bi-hospital"></i><span>Hospital</span>
+                        </a>
+
+                        <a class="nav-link" href="MantenimientoPacientes.aspx">
+                            <i class="bi bi-person-vcard"></i><span>Pacientes</span>
+                        </a>
+
+                        <a class="nav-link" href="MantenimientoMedicos.aspx">
+                            <i class="bi bi-clipboard2-pulse"></i><span>Médicos</span>
+                        </a>
+
+                        <a class="nav-link" href="MantenimientoEmpleados.aspx">
+                            <i class="bi bi-person-workspace"></i><span>Empleados</span>
+                        </a>
+
+                        <a class="nav-link" href="MantenimientoMedicamentos.aspx">
+                            <i class="bi bi-capsule-pill"></i><span>Medicamentos</span>
+                        </a>
+                        <a class="nav-link" href="MiInformacion.aspx">
+                            <i class="bi bi-person-circle"></i><span>Mi información</span>
+                        </a>
+                    </nav>
+                </asp:Panel>
+
+                <div class="sidebar-footer">
+                    <asp:LinkButton ID="btnSalir" runat="server"
+                        CssClass="logout-link"
+                        OnClick="btnSalir_Click">
+
+                        <i class="bi bi-box-arrow-left"></i>
+                        <span>Cerrar sesión</span>
+                    </asp:LinkButton>
+                </div>
+            </aside>
+
+            <div class="sidebar-overlay" onclick="closeSidebar()"></div>
+
+            <main class="portal-main">
+                <header class="topbar">
+                    <button type="button" class="menu-toggle"
+                        onclick="toggleSidebar()">
+
+                        <i class="bi bi-list"></i>
+                    </button>
+
+                    <div class="topbar-date">
+                        <i class="bi bi-shield-check"></i>
+                        <asp:Literal ID="litMensajeSuperior" runat="server"></asp:Literal>
+                    </div>
+                </header>
+
+                <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                </asp:ContentPlaceHolder>
+            </main>
+        </div>
+        <div id="portalConfirmacion"
+    class="portal-confirm-backdrop"
+    onclick="if (event.target === this) cerrarConfirmacion();">
+
+    <div class="portal-confirm-modal"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="tituloConfirmacion">
+
+        <span class="portal-confirm-icon">
+            <i class="bi bi-question-lg"></i>
+        </span>
+
+        <h2 id="tituloConfirmacion">Confirmar acción</h2>
+
+        <p id="textoConfirmacion"></p>
+
+        <div class="portal-confirm-actions">
+            <button type="button"
+                class="portal-confirm-cancel"
+                onclick="cerrarConfirmacion();">
+                Cancelar
+            </button>
+
+            <button type="button"
+                class="portal-confirm-accept"
+                onclick="aceptarConfirmacion();">
+                Confirmar
+            </button>
+        </div>
+    </div>
+</div>
+    </form>
+
+    <script>
+        function toggleSidebar() {
+            if (window.innerWidth < 992) {
+                document.body.classList.toggle("sidebar-open");
+            } else {
+                document.body.classList.toggle("sidebar-collapsed");
+            }
+        }
+
+        function closeSidebar() {
+    document.body.classList.remove("sidebar-open");
+}
+document.addEventListener("DOMContentLoaded", function() {
+    iniciarPaginacionTablas();
+});
+
+function iniciarPaginacionTablas() {
+    document.querySelectorAll("table.portal-table")
+        .forEach(configurarPaginacionTabla);
+}
+
+function configurarPaginacionTabla(tabla) {
+    if (tabla.dataset.paginada === "true") {
+        return;
+    }
+
+    const todasLasFilas = Array.from(tabla.rows)
+        .filter(function(fila) {
+            return fila.closest("table") === tabla;
+        });
+
+    if (todasLasFilas.length === 0) {
+        return;
+    }
+
+    const encabezado =
+        todasLasFilas.find(function(fila) {
+            return fila.querySelector("th") !== null;
+        }) || todasLasFilas[0];
+
+    const filasDatos = todasLasFilas.filter(function(fila) {
+        return fila !== encabezado && fila.cells.length > 0;
+    });
+
+    const esTablaVacia =
+        filasDatos.length === 1 &&
+        filasDatos[0].cells.length === 1 &&
+        filasDatos[0].cells[0].colSpan > 1;
+
+    if (esTablaVacia || filasDatos.length <= 10) {
+        return;
+    }
+
+    tabla.dataset.paginada = "true";
+
+    const filasPorPagina = 10;
+    const totalPaginas =
+        Math.ceil(filasDatos.length / filasPorPagina);
+
+    let paginaActual = 1;
+
+    const paginador = document.createElement("nav");
+    paginador.className = "portal-client-pager";
+
+    tabla.insertAdjacentElement("afterend", paginador);
+
+    function crearBoton(texto, pagina, deshabilitado, activo) {
+        const boton = document.createElement("button");
+
+        boton.type = "button";
+        boton.textContent = texto;
+        boton.disabled = deshabilitado;
+
+        if (activo) {
+            boton.classList.add("is-active");
+        }
+
+        boton.addEventListener("click", function() {
+            mostrarPagina(pagina);
+        });
+
+        paginador.appendChild(boton);
+    }
+
+    function mostrarPagina(numeroPagina) {
+        paginaActual = numeroPagina;
+
+        filasDatos.forEach(function(fila, indice) {
+            const inicio =
+                (paginaActual - 1) * filasPorPagina;
+
+            const fin = inicio + filasPorPagina;
+
+            fila.style.display =
+                indice >= inicio && indice < fin
+                    ? ""
+                    : "none";
+        });
+
+        paginador.innerHTML = "";
+
+        crearBoton(
+            "‹",
+            paginaActual - 1,
+            paginaActual === 1,
+            false);
+
+        for (let pagina = 1;
+            pagina <= totalPaginas;
+            pagina++) {
+            crearBoton(
+                pagina.toString(),
+                pagina,
+                false,
+                pagina === paginaActual);
+        }
+
+        crearBoton(
+            "›",
+            paginaActual + 1,
+            paginaActual === totalPaginas,
+            false);
+    }
+
+            mostrarPagina(1);
+}
+
+let controlPendienteConfirmacion = null;
+
+function confirmarAccion(control, mensaje) {
+    if (control.getAttribute("data-confirmado") === "true") {
+        control.removeAttribute("data-confirmado");
+        return true;
+    }
+
+    controlPendienteConfirmacion = control;
+
+    document.getElementById("textoConfirmacion")
+        .textContent = mensaje;
+
+    document.getElementById("portalConfirmacion")
+        .classList.add("is-open");
+
+    return false;
+}
+
+function cerrarConfirmacion() {
+    document.getElementById("portalConfirmacion")
+        .classList.remove("is-open");
+
+    controlPendienteConfirmacion = null;
+}
+
+function aceptarConfirmacion() {
+    const control = controlPendienteConfirmacion;
+
+    cerrarConfirmacion();
+
+    if (control === null) {
+        return;
+    }
+
+    control.setAttribute("data-confirmado", "true");
+    control.click();
+}
+
+document.addEventListener("keydown", function(evento) {
+    if (evento.key === "Escape") {
+        cerrarConfirmacion();
+            }
+        });
+    </script>
+</body>
+</html>

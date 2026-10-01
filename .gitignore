@@ -1,0 +1,36 @@
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Compilación
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+
+# Paquetes restaurables
+packages/
+*.nupkg
+
+# Publicación
+publish/
+*.Publish.xml
+*.pubxml.user
+
+# Base de datos y respaldos locales
+*.mdf
+*.ldf
+*.bak
+*.trn
+
+# Archivos del sistema y editores
+.DS_Store
+Thumbs.db
+*.tmp
+*.log
+
