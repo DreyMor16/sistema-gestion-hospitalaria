@@ -93,96 +93,39 @@ database/  Creación y mejoras de la base de datos
 docs/      Material visual del proyecto
 ```
 
-## Capturas
+## Validación funcional completa
 
-Las pantallas utilizan exclusivamente la información ficticia incluida en el
-script de demostración.
+Se comprobó el recorrido de extremo a extremo con los cuatro perfiles del
+sistema y datos sintéticos. La evidencia incluye **60 capturas** de las
+operaciones de creación, consulta, búsqueda, actualización, cancelación, pago y
+eliminación que permite cada módulo.
 
-### Acceso al sistema
+| Área | Flujo validado |
+| --- | --- |
+| Administración | Hospitales, médicos, empleados, pacientes, medicamentos e inventario. |
+| Recepción | Registro de pacientes, agenda, cancelación de citas y cobros. |
+| Médico | Diagnóstico, tratamiento, prescripción, cierre de cita e historial. |
+| Paciente | Activación, expediente, citas, pagos, totales y perfil. |
 
-<p align="center">
-  <img src="docs/screenshots/01-login.png" alt="Inicio de sesión del sistema hospitalario" width="900">
-</p>
+**[Ver las 60 capturas del recorrido funcional](docs/OPERACIONES.md)**
 
-### Administración
+Todas las imágenes muestran información ficticia. Después de las pruebas se
+eliminaron los registros temporales y se restauró la base de datos de
+demostración.
 
-<table>
-  <tr>
-    <td width="50%">
-      <strong>Panel administrativo</strong><br>
-      <img src="docs/screenshots/02-admin-dashboard.png" alt="Panel administrativo" width="100%">
-    </td>
-    <td width="50%">
-      <strong>Gestión de medicamentos</strong><br>
-      <img src="docs/screenshots/03-admin-medicamentos.png" alt="Gestión de medicamentos" width="100%">
-    </td>
-  </tr>
-  <tr>
-    <td colspan="2">
-      <strong>Catálogo e inventario</strong><br>
-      <img src="docs/screenshots/03b-admin-inventario.png" alt="Catálogo e inventario de medicamentos" width="100%">
-    </td>
-  </tr>
-</table>
-
-### Recepción
+### Galería destacada
 
 <table>
   <tr>
-    <td width="50%">
-      <strong>Panel de recepción</strong><br>
-      <img src="docs/screenshots/04-recepcion-dashboard.png" alt="Panel de recepción" width="100%">
-    </td>
-    <td width="50%">
-      <strong>Creación de citas</strong><br>
-      <img src="docs/screenshots/05-recepcion-citas.png" alt="Creación de citas médicas" width="100%">
-    </td>
-  </tr>
-</table>
-
-### Portal médico
-
-<table>
-  <tr>
-    <td width="50%">
-      <strong>Jornada clínica</strong><br>
-      <img src="docs/screenshots/06-medico-dashboard.png" alt="Panel del médico" width="100%">
-    </td>
-    <td width="50%">
-      <strong>Historial de citas</strong><br>
-      <img src="docs/screenshots/07-medico-historial.png" alt="Historial de citas del médico" width="100%">
-    </td>
+    <td width="50%"><strong>Acceso unificado</strong><br><img src="docs/screenshots/operations/01-login-unificado.jpg" alt="Inicio de sesión unificado" width="100%"></td>
+    <td width="50%"><strong>Panel administrativo</strong><br><img src="docs/screenshots/operations/02-admin-dashboard.jpg" alt="Panel administrativo" width="100%"></td>
   </tr>
   <tr>
-    <td colspan="2">
-      <strong>Pacientes atendidos</strong><br>
-      <img src="docs/screenshots/08-medico-pacientes.png" alt="Pacientes atendidos por el médico" width="100%">
-    </td>
-  </tr>
-</table>
-
-### Portal del paciente
-
-<table>
-  <tr>
-    <td width="50%">
-      <strong>Mi espacio de salud</strong><br>
-      <img src="docs/screenshots/09-paciente-dashboard.png" alt="Panel del paciente" width="100%">
-    </td>
-    <td width="50%">
-      <strong>Agenda de citas</strong><br>
-      <img src="docs/screenshots/10-paciente-citas.png" alt="Agenda de citas del paciente" width="100%">
-    </td>
+    <td width="50%"><strong>Creación de citas</strong><br><img src="docs/screenshots/operations/25-recepcion-cita-creada.jpg" alt="Cita creada desde recepción" width="100%"></td>
+    <td width="50%"><strong>Atención y prescripción</strong><br><img src="docs/screenshots/operations/34-medico-prescripcion-registrada.jpg" alt="Prescripción médica registrada" width="100%"></td>
   </tr>
   <tr>
-    <td width="50%">
-      <strong>Expediente personal</strong><br>
-      <img src="docs/screenshots/11-paciente-expediente.png" alt="Expediente del paciente" width="100%">
-    </td>
-    <td width="50%">
-      <strong>Pagos de tratamientos</strong><br>
-      <img src="docs/screenshots/12-paciente-pagos.png" alt="Pagos de tratamientos" width="100%">
-    </td>
+    <td colspan="2"><strong>Pago desde el portal del paciente</strong><br><img src="docs/screenshots/operations/55-paciente-pago-confirmado.jpg" alt="Pago confirmado por el paciente" width="100%"></td>
   </tr>
 </table>
 
